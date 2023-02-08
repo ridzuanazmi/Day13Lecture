@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <title>Update Employee</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center mt-3">Update Employee Information</h1>
+    <form method="POST" th:action="@{/employees/updateEmployee}" th:object="${addEmployee}">
+      <div class="form-group mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="firstName" th:field="*{firstName}" />
+      </div>
+      <div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+
+      <div class="form-group mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lastName" th:field="*{lastName}" />
+      </div>
+      <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+
+      <div class="form-group mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" th:field="*{email}" />
+      </div>
+      <div class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+      <div class="form-group mb-3">
+        <label for="phoneno" class="form-label">Phone No</label>
+        <input type="text" class="form-control" name="phoneNo" th:field="*{phoneNo}" />
+      </div>
+      <div class="alert alert-danger" th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}"></div>
+
+      <div class="form-group mb-3">
+        <label for="salary" class="form-label">Salary</label>
+        <input type="number" class="form-control" name="salary" th:field="*{salary}" />
+      </div>
+      <div class="alert alert-danger" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></div>
+
+      <div class="form-group mb-3">
+        <label for="birthday" class="form-label">DOB</label>
+        <input type="date" class="form-control" name="birthDay" th:field="*{birthday}" />
+      </div>
+      <div class="alert alert-danger" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></div>
+
+      <div class="form-group mb-3">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" name="address" th:field="*{address}" />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="postalcode" class="form-label">Postal Code</label>
+        <input type="number" class="form-control" name="postalCode" th:field="*{postalCode}" />
+      </div>
+      <div class="alert alert-danger" th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}"></div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <a class="btn btn-outline-success mt-3" th:href="@{/employees/home}">Employee List</a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

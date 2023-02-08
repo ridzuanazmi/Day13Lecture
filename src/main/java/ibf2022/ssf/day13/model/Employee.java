@@ -10,6 +10,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -30,14 +31,15 @@ public class Employee {
     @NotBlank(message = "Emaill is a mandatory field")
     private String email;
 
-    @Pattern(regexp = "(\\8|9)[0-9]{7}", message = "Invalid phone number")
+    @Pattern(regexp = "^[89]\\d{7}$", message = "Invalid phone number")
     private String phoneNo;
 
     @Min(value = 1500, message = "Min salary starts from $1500")
     @Max(value = 400000, message = "Max salary $400,000")
     private Integer salary;
 
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @PastOrPresent(message = "Birth daye cannot be greater than today")
     private Date birthday;
 
     private String address;
@@ -50,8 +52,8 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, String address, String email, String phoneNo, Integer salary,
-            Date birthday, Integer postalCode) {
+    public Employee(String firstName, String lastName, String address, Integer postalCode, String email, String phoneNo, Integer salary,
+            Date birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
