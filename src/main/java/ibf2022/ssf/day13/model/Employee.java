@@ -39,7 +39,7 @@ public class Employee {
     private Integer salary;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @PastOrPresent(message = "Birth daye cannot be greater than today")
+    @PastOrPresent(message = "Birth date cannot be greater than today")
     private Date birthday;
 
     private String address;
